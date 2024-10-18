@@ -6,6 +6,11 @@ Creare una funzione per capire se la parola inserita è palindroma
 */
 
 // ! SOLUZIONE
+/**
+ * La funzione è stata creata per la composizione al contrario della parola inserita dall'utente
+ * @param {string} word inserisci una parola qualsiasi
+ * @returns {string} il risultato sarà la parola capovolta
+ */
 function reversedWord(word) {
   let splitWordArray = word.split("");
   // console.log(splitWordArray);
