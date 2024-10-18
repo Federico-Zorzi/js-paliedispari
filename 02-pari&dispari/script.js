@@ -53,18 +53,38 @@ const evenAndOdd = ["pari", "dispari"];
 const minNumber = 1;
 const maxNumber = 5;
 
-const userEvenOrOddChoise = prompt('scegli "pari" o "dispari"');
+let userEvenOrOddChoise = prompt('scegli "pari" o "dispari"');
+// controllo se il valore dell-utente è corretto
+let isUserChoiseEvenOddValid = evenAndOdd.includes(userEvenOrOddChoise);
+while (!isUserChoiseEvenOddValid) {
+  userEvenOrOddChoise = prompt(
+    'valore inserito non disponibile, scegliere tra "pari" e "dispari"'
+  );
+  isUserChoiseEvenOddValid = evenAndOdd.includes(userEvenOrOddChoise);
+}
+
 console.log("la scelta del giocatore è: " + userEvenOrOddChoise);
 
-const userNumber = parseInt(
+let userNumber = parseInt(
   prompt(`scegli un numero tra ${minNumber} e ${maxNumber}`)
 );
+let isUserNumberValid =
+  !isNaN(userNumber) && userNumber > minNumber && userNumber < maxNumber;
+
+while (!isUserNumberValid) {
+  userNumber = parseInt(
+    prompt(
+      `valore inserito non disponibile, inserire nuovo numero tra ${minNumber} e ${maxNumber}`
+    )
+  );
+  isUserNumberValid =
+    !isNaN(userNumber) && userNumber >= minNumber && userNumber <= maxNumber;
+}
+
 console.log(`il numero del giocatore è: ${userNumber}`);
 
 const pcNumber = numberRandomizer(minNumber, maxNumber);
 console.log(`il numero del pc è: ${pcNumber}`);
 
 const gameResult = evenOddGame(userNumber, pcNumber, userEvenOrOddChoise);
-/* console.log(gameResult); */
-
 console.log(gameResult ? "Il giocatore ha vinto" : "Il pc ha vinto");
