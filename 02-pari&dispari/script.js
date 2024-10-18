@@ -70,7 +70,7 @@ let userNumber = parseInt(
 );
 let isUserNumberValid =
   !isNaN(userNumber) && userNumber > minNumber && userNumber < maxNumber;
-
+// controllo se il valore dell-utente è corretto
 while (!isUserNumberValid) {
   userNumber = parseInt(
     prompt(
